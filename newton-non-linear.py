@@ -12,9 +12,9 @@ def big_J(i, j, x):
 
 def big_F(i, x):
     if (i == 0):
-        return - (math.exp(x[0]) + x[1] - 1)
+        return math.exp(x[0]) + x[1] - 1
     elif (i == 1):
-        return - (math.pow(x[0], 2) + math.pow(x[1], 2) - 4)
+        return math.pow(x[0], 2) + math.pow(x[1], 2) - 4
     
 def gaussSolve (a, b):
     n = len(a)
@@ -47,7 +47,7 @@ for it in range(iters):
             small_j[i][j] = big_J(i, j, xi)
                                   
     for i in range(len(small_f)):
-        small_f[i] = big_F(i, xi)
+        small_f[i] = -big_F(i, xi)
     
     sigma = gaussSolve(small_j, small_f)
 
